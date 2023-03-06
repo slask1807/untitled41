@@ -25,56 +25,36 @@ public class Program {
 //        Boolean secondWord = scanner.nextBoolean();
 //        Boolean thirdWord = scanner.nextBoolean();
         //int num0 = scanner.nextInt();
-        int n = scanner.nextInt();
-        int[] a = new int[n];
-
-        for (int i = 0; i < n; i++) { // i < n можно заменить на i < a.length
+        int N = scanner.nextInt();
+        int K = scanner.nextInt();
+        if (K > N) {
+            K = K % N;
+        }
+        int[] a = new int[N];
+        for (int i = 0; i < N; i++) {
             a[i] = scanner.nextInt();
-                    }
-
-        int min = a[0];
-        int minN=0;
-        for (int i = 0; i < n; i++) {
-            if (min > a[i]) {
-                min = a[i];
-                 minN =i;
-            } }
-      System.out.println("мини инд"+minN);
-        int max = a[0];
-        int maxN =0;
-        for (int i = 0; i < n; i++) {
-            if (max <= a[i]) {
-                max = a[i];
-                maxN =i;
-                        }
-        }
-        System.out.println("макс инд"+maxN);
-//      System.out.println(max);
-//                System.out.println(min);
-        int sum=0;
-        if (minN<maxN){
-      for (int i = minN+1; i < maxN; i++) {
-
-             sum+=a[i];
-
-          }}
-        if (minN>maxN) {
-            for (int i = maxN+1; i < minN; i++) {
-
-                sum+=a[i];
-
-            }}
-        if (minN==maxN)
-        {
-            for (int i = 1; i < n-1; i++) {
-
-                sum+=a[i];
-
-            }}
-          System.out.print(sum);
         }
 
+        for (int i = 0; i < K; i++) {
+            int n = a[N - 1];
+            for (int j = N - 1; j > 0; j--) {
+                a[j] = a[j - 1];
+            }
+            a[0] = n;
+
         }
+
+        for (int i = 0; i < N; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+
+
+}
+
+
+
+
 
 
 
